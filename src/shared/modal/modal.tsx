@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { Modal } from 'react-bootstrap';
-import Button from 'shared/form/button';
+import Button from 'shared/components/form/button';
 
 export interface IModalProps extends PropsWithChildren {
 	show: boolean;
