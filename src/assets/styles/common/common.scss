@@ -716,6 +716,12 @@
 	align-items: center;
 }
 
+.justify-align--center {
+	@extend %flex;
+	@extend %justify-content--center;
+	@extend %align-items--center;
+}
+
 /* text-align
 ------------------------------------------------------------------------------*/
 .text--left {
@@ -1338,6 +1344,13 @@
 .error {
 	color: getColor($red, 200);
 	@include marginTop(10px);
+}
+
+/* Image 
+------------------------------------------------------------------------------*/
+.loading-image {
+	width: 27px;
+	height: 22px;
 }
 
 .table-responsive {

@@ -1,0 +1,18 @@
+.dashboard-wrapper {
+	height: calc(100vh - 60px);
+	padding: 30px;
+}
+
+.modal-backdrop {
+	display: none !important;
+	opacity: 1 !important;
+
+	.show {
+		display: none !important;
+		opacity: 1 !important;
+	}
+	.fade {
+		display: none !important;
+		opacity: 1 !important;
+	}
+}

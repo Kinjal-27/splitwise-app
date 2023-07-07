@@ -26,7 +26,7 @@ const CustomModal: React.FC<IModalProps> = (props) => {
 				</Modal.Header>
 			) : (
 				<Button className='modal-close-btn' onClick={props.handleClose}>
-					<span>×</span>
+					X
 				</Button>
 			)}
 			<Modal.Body>{props.children}</Modal.Body>
