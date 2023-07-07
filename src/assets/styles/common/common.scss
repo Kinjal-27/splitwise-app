@@ -1339,3 +1339,155 @@
 	color: getColor($red, 200);
 	@include marginTop(10px);
 }
+
+.table-responsive {
+	height: 100%;
+	max-height: calc(100vh - 385px);
+	min-height: 215px;
+	border-radius: 8px;
+	border: 1px solid #e7eaec;
+	overflow-x: hidden;
+
+	&::-webkit-scrollbar-thumb {
+		background-color: getColor($grey, 50);
+	}
+	.spinner {
+		height: 100%;
+		min-height: 105px;
+	}
+
+	.table {
+		width: 100%;
+		margin: 0;
+
+		thead {
+			tr {
+				background-color: $primary;
+				border: 1px solid #e7eaec;
+
+				.table-title {
+					background-color: $primary;
+					color: #fff;
+					font-size: 14px;
+					font-weight: $font-semi-bold;
+					padding: 12px 10px;
+				}
+			}
+		}
+
+		tbody {
+			.table-search-row {
+				background-color: #f4f6f8;
+
+				&:hover {
+					background-color: #f4f6f800;
+				}
+
+				.cell {
+					padding: 5px 10px;
+
+					.name-search,
+					.number-search {
+						width: calc(100% - 40px);
+						color: #98989e;
+						border: 1px solid $gray;
+						border-radius: 6px;
+						padding: 5px 10px;
+
+						&::placeholder {
+							font-size: 14px;
+						}
+					}
+
+					.search-icon {
+						right: 25px;
+						top: 9px;
+					}
+
+					.arena-search-wrapper {
+						max-width: 300px;
+					}
+				}
+			}
+
+			.path-module-link-wrapper {
+				background-color: #e5f2ef;
+				cursor: pointer;
+			}
+
+			.table-row {
+				font-weight: $font-regular;
+				font-size: 15px;
+				line-height: 22px;
+				vertical-align: middle;
+
+				.cell {
+					padding: 5px 10px;
+
+					.meta-description {
+						display: block;
+						width: 100%;
+						max-width: 350px;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+					}
+				}
+
+				.profile-img {
+					width: 44px;
+					height: 44px;
+					border-radius: 4px;
+					object-fit: contain;
+				}
+
+				.status {
+					width: 70px;
+					padding: 2px 0;
+					text-align: center;
+				}
+
+				.status-active {
+					background: rgba(90, 216, 185, 0.1);
+					color: getColor($primary-shade, 4);
+					border: 1px solid getColor($primary-shade, 4);
+				}
+
+				.status-inactive {
+					background: rgba(255, 103, 129, 0.1);
+					border: 1px solid #ff6781;
+				}
+
+				.view--icon {
+					svg {
+						width: 20px;
+						height: 20px;
+					}
+					path {
+						fill: getColor($grey, 150);
+					}
+				}
+				.edit--icon {
+					path {
+						fill: $primary;
+					}
+				}
+				.delete--icon {
+					svg {
+						width: 20px;
+						height: 20px;
+					}
+				}
+				.delete-icon--wrapper {
+					width: 25px;
+					height: 25px;
+				}
+				.arena-question-img {
+					width: 30px;
+					height: 30px;
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+}
