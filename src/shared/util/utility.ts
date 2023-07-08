@@ -58,7 +58,7 @@ export const generateColor = () => {
 };
 
 export const getRandomColor = () => {
-	const colors = ['#87c285', '#688D95', '#fad578', '#6f4bdb'];
+	const colors = ['#87c285', 'rgb(117 210 230)', '#fad578', '#a994e8'];
 	const randomIndex = Math.floor(Math.random() * colors.length);
 	return colors[randomIndex];
 };

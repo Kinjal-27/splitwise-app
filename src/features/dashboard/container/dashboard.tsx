@@ -1,11 +1,12 @@
 import { Button } from 'react-bootstrap';
 import React, { useState, FC } from 'react';
 import Header from 'shared/components/header/header';
+import CustomModal from 'shared/modal/modal';
 import AddExpenses from '../components/addExpense';
+import ExpenseList from '../components/expenseList';
+import SettleUp from '../components/settleUp';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/dashboard.scss';
-import CustomModal from 'shared/modal/modal';
-import ExpenseList from '../components/expenseList';
 
 const Dashboard: FC = () => {
 	const [isOpenModel, setIsOpenModel] = useState(false);
@@ -21,7 +22,10 @@ const Dashboard: FC = () => {
 						<AddExpenses handleClose={() => setIsOpenModel(!isOpenModel)} />
 					</CustomModal>
 				)}
-				<ExpenseList />
+				<div className='flex justify-content--between'>
+					<ExpenseList />
+					<SettleUp />
+				</div>
 			</div>
 		</>
 	);

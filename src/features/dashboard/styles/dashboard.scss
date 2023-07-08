@@ -1,10 +1,38 @@
 .dashboard-wrapper {
 	height: calc(100vh - 82px);
-	.expense-list-wrapper {
+	.common-list-wrapper {
+		width: 45%;
 		.expense-card {
-			padding: 10px;
+			padding: 20px;
 			border-radius: 10px;
 			margin: 10px 0;
+			background: #1e1e1e;
+			.expense-description {
+				color: rgb(216, 208, 208);
+			}
+			.date-text {
+				color: rgb(163, 159, 159);
+				font-size: 16px;
+			}
+			.expense-list-img {
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
+	.settle-up-wrapper {
+		width: 45%;
+	}
+	.btn {
+		height: 40px;
+		font-size: 18px;
+	}
+	.settle-up-btn {
+		background: #6f4bdb;
+		border: none;
+		transition: all 0.3s ease;
+		&:hover {
+			opacity: 0.9;
 		}
 	}
 }

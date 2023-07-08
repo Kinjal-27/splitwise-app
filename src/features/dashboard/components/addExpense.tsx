@@ -19,16 +19,15 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 		amount: '',
 		whoPaid: '',
 		date: '',
-		involvedFriends: []
+		involvedFriends: [],
+		amountStatus: false
 	};
 	const storedMembers = localStorage.getItem('groupMembers');
 	const getMembers = JSON.parse(storedMembers as string);
 
 	localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
 
-	const currentDate = new Date();
-	const options = { year: 'numeric', month: 'long', day: 'numeric' };
-	const formattedDate = currentDate.toLocaleString('en-US', options as any);
+	const formattedDate = new Date().toLocaleString('en-us', { month: 'short', year: 'numeric', day: '2-digit' }) + '';
 
 	const handleSubmit = (values: IFormikValues) => {
 		values.date = formattedDate;

@@ -4,4 +4,5 @@ export interface IFormikValues {
 	whoPaid: string;
 	date: string;
 	involvedFriends: string[];
+	amountStatus: boolean;
 }

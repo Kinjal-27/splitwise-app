@@ -1,21 +1,67 @@
-import { FC } from 'react';
+import { indexOf } from 'lodash';
+import { FC, useEffect, useState, useCallback } from 'react';
+import { Button } from 'react-bootstrap';
+import { getRandomColor } from 'shared/util/utility';
+import { profileImgMapper } from '../constants/constant';
 
 const ExpenseList: FC = () => {
-	const getExpenseData = JSON.parse(localStorage.getItem('Expenses') || '[]');
+	const [getExpenseData, setExpenseData] = useState(JSON.parse(localStorage.getItem('Expenses') || '[]'));
+
+	const handleSettleUp = useCallback((summaryIndex: number) => {
+		const index = getExpenseData.findIndex((expenseData: any, index: number) => index === summaryIndex);
+
+		const removeData = getExpenseData.splice(index, 1);
+
+		const updatedArr = [...removeData];
+		updatedArr[index].amountStatus = true;
+		localStorage.setItem('Expenses', JSON.stringify(updatedArr));
+		setExpenseData({ ...updatedArr });
+	}, []);
+
 	return (
-		<div className='expense-list-wrapper'>
-			<h4 className='expense-list-title mt--30'>Expense List</h4>
+		<div className='common-list-wrapper'>
+			<h5 className='expense-list-title mt--30'>Recently Added</h5>
 			{getExpenseData &&
 				Array.isArray(getExpenseData) &&
 				getExpenseData.map((expense: any, index: number) => {
-					const { amount, description, involvedFriends, whoPaid, date } = expense;
+					const { amount, description, involvedFriends, whoPaid, date, amountStatus } = expense;
+
 					return (
-						<div key={index} className='flex expense-card'>
-							<p>{date}</p>
-							<p>Description: {description}</p>
-							<p>Amount: {amount}</p>
-							<p>Who Paid: {whoPaid}</p>
-							<p>Involved Friends: {involvedFriends}</p>
+						<div key={index} className='flex flex--column expense-card'>
+							<div className='flex justify-content--between'>
+								<p className='expense-description font-size--24 font--semi-bold mb--5'>{description}</p>
+								<p className='date-text'>{date}</p>
+							</div>
+							<div className='font-size--md flex justify-content--between'>
+								<div className='font-size--md'>
+									<span className='font-size--xxl'>$ {amount} </span> paid by{' '}
+									<span style={{ color: `${getRandomColor()}` }}>{whoPaid}</span>{' '}
+								</div>
+								<Button className='btn settle-up-btn' onClick={() => handleSettleUp(index)}>
+									Settle Up
+								</Button>
+							</div>
+
+							<div className='flex mt--5'>
+								{involvedFriends.map((friendName: string, index: number) => {
+									return (
+										<div className='flex flex--column align-items--center mr--10'>
+											<img
+												key={index}
+												src={profileImgMapper[friendName]}
+												alt='profile-img'
+												className='expense-list-img'
+											/>
+											<p className='mt--10'>{friendName}</p>
+											<p className='font-size--xxs' style={{ color: `${getRandomColor()}` }}>
+												{amountStatus
+													? 'paid 0.00'
+													: `Owes  ${amount / involvedFriends.length}`}
+											</p>
+										</div>
+									);
+								})}
+							</div>
 						</div>
 					);
 				})}
