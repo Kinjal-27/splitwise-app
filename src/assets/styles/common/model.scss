@@ -60,23 +60,20 @@
 							background: transparent;
 						}
 					}
-					.checkbox-wrapper {
-						position: relative;
-						.checkbox-input {
-							width: 50px;
-							height: 50px;
-							background: transparent;
-							border-radius: 50px;
-							margin-right: 5px;
-							z-index: 1;
-							position: absolute;
-							top: 0;
-							left: 0;
-						}
-						.profile-img {
-							width: 50px;
-							z-index: 0;
-						}
+					.checkbox-input {
+						width: 50px;
+						height: 50px;
+						background: transparent;
+						border-radius: 50px;
+						margin-right: 5px;
+						z-index: 1;
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+					.profile-img {
+						width: 50px;
+						z-index: 0;
 					}
 					.form-label {
 						font-size: 18px;

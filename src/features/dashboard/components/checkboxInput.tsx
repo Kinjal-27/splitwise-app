@@ -19,7 +19,7 @@ const CheckboxInput = ({ field, form, label }: any) => {
 		<div>
 			<label
 				htmlFor={label}
-				className={`checkbox-wrapper ${
+				className={`position--relative ${
 					Array.isArray(field.value) && field.value.includes(label) && 'disabled'
 				}`}
 			>

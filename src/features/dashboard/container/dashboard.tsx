@@ -4,7 +4,6 @@ import Header from 'shared/components/header/header';
 import CustomModal from 'shared/modal/modal';
 import AddExpenses from '../components/addExpense';
 import ExpenseList from '../components/expenseList';
-import SettleUp from '../components/settleUp';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/dashboard.scss';
 
@@ -22,9 +21,8 @@ const Dashboard: FC = () => {
 						<AddExpenses handleClose={() => setIsOpenModel(!isOpenModel)} />
 					</CustomModal>
 				)}
-				<div className='flex justify-content--between'>
+				<div className='height--full flex flex--wrap'>
 					<ExpenseList />
-					<SettleUp />
 				</div>
 			</div>
 		</>

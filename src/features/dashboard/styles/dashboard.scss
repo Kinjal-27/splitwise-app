@@ -1,11 +1,12 @@
 .dashboard-wrapper {
 	height: calc(100vh - 82px);
 	.common-list-wrapper {
-		width: 45%;
+		width: 100%;
 		.expense-card {
 			padding: 20px;
 			border-radius: 10px;
-			margin: 10px 0;
+			margin: 20px 0;
+			width: 48%;
 			background: #1e1e1e;
 			.expense-description {
 				color: rgb(216, 208, 208);
@@ -34,6 +35,13 @@
 		&:hover {
 			opacity: 0.9;
 		}
+	}
+	.settled-text {
+		border: 1px solid rgb(206, 175, 118);
+		color: rgb(206, 175, 118);
+		padding: 8px 10px;
+		border-radius: 8px;
+		font-size: 18px;
 	}
 }
 
