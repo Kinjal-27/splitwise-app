@@ -28,3 +28,8 @@ export interface ITableCell {
 	sortable?: boolean;
 	column: IColumn;
 }
+
+export interface IOption {
+	label: string;
+	value: string | number | boolean | null;
+}

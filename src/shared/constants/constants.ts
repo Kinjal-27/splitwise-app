@@ -49,12 +49,13 @@ const REACT_SELECT_STYLE = {
 		left: '0px',
 		borderRadius: '5px',
 		border: 'none',
-		boxShadow: 'none'
+		boxShadow: 'none',
+		backgroundColor: 'black'
 	}),
 	menuList: (base: CSSProperties) => ({
 		...base,
 		padding: 0,
-		backgroundColor: '#ffffff',
+		backgroundColor: '#000',
 		width: '100%',
 		border: '1px solid #e7e7e7',
 		borderRadius: '5px',
@@ -94,14 +95,13 @@ const REACT_SELECT_STYLE = {
 	}),
 	container: () => ({
 		width: '100%',
-		maxWidth: '200px',
-		marginRight: '30px',
+		maxWidth: '220px',
 		position: 'relative',
 		fontSize: '13px'
 	}),
 	placeholder: (base: CSSProperties) => ({
 		...base,
-		color: 'black',
+		color: 'white',
 		fontSize: '14px',
 		fontWeight: '$font-medium'
 	})
@@ -109,7 +109,7 @@ const REACT_SELECT_STYLE = {
 const STATUS_REACT_SELECT_STYLE = {
 	control: (base: CSSProperties) => ({
 		...base,
-		maxWidth: '160px',
+		maxWidth: '230px',
 		border: '1px solid #3ea4a6',
 		':hover': {
 			border: '1px solid #3ea4a6'
@@ -120,11 +120,11 @@ const STATUS_REACT_SELECT_STYLE = {
 		...base,
 		paddingTop: '0px',
 		paddingBottom: '0px',
-		maxWidth: '160px'
+		maxWidth: '230px'
 	}),
 	menu: (base: CSSProperties) => ({
 		...base,
-		maxWidth: '160px'
+		maxWidth: '230px'
 	})
 };
 export {

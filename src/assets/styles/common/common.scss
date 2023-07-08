@@ -1504,3 +1504,23 @@
 		}
 	}
 }
+
+.content-container {
+	width: 100%;
+	max-width: 1400px;
+	@include padding(0);
+	@include margin(0 auto);
+	box-sizing: border-box;
+}
+
+.header-wrapper {
+	padding: 15px 20px;
+	border-bottom: 1px solid rgb(8 161 8 / 40%);
+	.titlt {
+		color: $revell;
+	}
+	.logo-img {
+		width: 50px;
+		margin-right: 10px;
+	}
+}

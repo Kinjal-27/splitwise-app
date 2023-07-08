@@ -1,7 +1,8 @@
-{
-	"group_members": [
-		{ "id": 111, "name": "Jasmeen" },
-		{ "id": 112, "name": "Rita" },
-		{ "id": 113, "name": "Kinjal" }
-	]
-}
+[
+	{ "value": 111, "label": "Jasmeen" },
+	{ "value": 112, "label": "Rita" },
+	{ "value": 113, "label": "Kinjal" },
+	{ "value": 114, "label": "Janvi" },
+	{ "value": 115, "label": "Devam" },
+	{ "value": 116, "label": "Shivani" }
+]
