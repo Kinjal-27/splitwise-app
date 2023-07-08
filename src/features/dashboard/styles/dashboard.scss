@@ -1,5 +1,12 @@
 .dashboard-wrapper {
 	height: calc(100vh - 82px);
+	.expense-list-wrapper {
+		.expense-card {
+			padding: 10px;
+			border-radius: 10px;
+			margin: 10px 0;
+		}
+	}
 }
 
 .modal-backdrop {

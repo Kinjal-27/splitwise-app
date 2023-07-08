@@ -7,23 +7,31 @@ import { ReactSelect } from 'shared/components/form/reactSelect';
 import { REACT_SELECT_STYLE, STATUS_REACT_SELECT_STYLE } from 'shared/constants/constants';
 import * as schema from 'shared/constants/validation-schema';
 import { IOption } from 'shared/interface';
+import CheckboxInput from '../components/checkboxInput';
 
 interface ICommonFormProps {
 	handleClose: () => void;
 }
 
 const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
-	const [initialData, setInitialData] = useState({
+	const initialData = {
 		description: '',
 		amount: '',
-		whoPaid: ''
-	});
+		whoPaid: '',
+		date: '',
+		involvedFriends: []
+	};
 	const storedMembers = localStorage.getItem('groupMembers');
 	const getMembers = JSON.parse(storedMembers as string);
 
 	localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
 
+	const currentDate = new Date();
+	const options = { year: 'numeric', month: 'long', day: 'numeric' };
+	const formattedDate = currentDate.toLocaleString('en-US', options as any);
+
 	const handleSubmit = (values: IFormikValues) => {
+		values.date = formattedDate;
 		const storedArray = JSON.parse(localStorage.getItem('Expenses') || '[]');
 		storedArray.push(values);
 		localStorage.setItem('Expenses', JSON.stringify(storedArray));
@@ -35,12 +43,12 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 			<Formik
 				initialValues={initialData}
 				validateOnChange
-				// validationSchema={schema.createModuleValidationSchema}
+				validationSchema={schema.createModuleValidationSchema}
 				onSubmit={handleSubmit}
 			>
-				{({ errors, touched, values, setFieldValue }) => {
+				{({ errors, touched, setFieldValue }) => {
 					return (
-						<Form className='form-wrapper flex flex--column'>
+						<Form className='form-wrapper flex flex--column' autoComplete='off'>
 							<h3 className='form-title'>Add Expense</h3>
 							<div className='form-inputs'>
 								<div className='flex width--full justify-content--between align-items--end'>
@@ -77,7 +85,19 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 								{errors.whoPaid && touched.whoPaid ? (
 									<div className='error'>{errors.whoPaid}</div>
 								) : null}
+								<div className='flex justify-content--between mt--20'>
+									{getMembers.map((item: any) => (
+										<Field
+											key={item.value}
+											name='involvedFriends'
+											component={CheckboxInput}
+											label={item.label}
+											additionalProp={initialData.whoPaid}
+										/>
+									))}
+								</div>
 							</div>
+
 							<div className='flex justify-content--end'>
 								<div className='cancel-btn mr--20'>
 									<Button type='submit' className='btn btn-danger mt--40'>

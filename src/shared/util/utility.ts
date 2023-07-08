@@ -53,6 +53,12 @@ export const generateColor = () => {
 	const x = Math.floor(Math.random() * 256);
 	const y = Math.floor(Math.random() * 256);
 	const z = Math.floor(Math.random() * 256);
-	const RGBColor = `${x} ,${y}, ${z}`;
+	const RGBColor = 'rgba(' + x + ',' + y + ',' + z + ',0.5' + ')';
 	return RGBColor;
+};
+
+export const getRandomColor = () => {
+	const colors = ['#87c285', '#688D95', '#fad578', '#6f4bdb'];
+	const randomIndex = Math.floor(Math.random() * colors.length);
+	return colors[randomIndex];
 };

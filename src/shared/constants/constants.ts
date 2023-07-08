@@ -127,6 +127,7 @@ const STATUS_REACT_SELECT_STYLE = {
 		maxWidth: '230px'
 	})
 };
+
 export {
 	FIRST_LEVEL_BREADCRUMBS,
 	NUMBER_REGEX,
