@@ -61,8 +61,9 @@ const resetPasswordFormValidationSchema = Yup.object().shape({
 
 const createModuleValidationSchema = Yup.object().shape({
 	description: Yup.string().required('Description is required'),
-	amount: Yup.string().required('Amount is required'),
-	whoPaid: Yup.number().required('select a member')
+	amount: Yup.number().required('Amount is required'),
+	whoPaid: Yup.string().required('select a member who paid'),
+	involvedFriends: Yup.array().min(1, 'At least one checkbox must be selected')
 });
 
 export {

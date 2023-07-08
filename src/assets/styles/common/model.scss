@@ -5,6 +5,7 @@
 	top: 0;
 	left: 0;
 	z-index: 99;
+	background: #8080801f;
 
 	// .modal__body {
 	// 	.scroll-with--sticky-header {
@@ -22,31 +23,66 @@
 	// 		@include padding(0 20px);
 	// 	}
 	// }
+	.modal-body {
+		padding: 20px 30px;
+	}
 	.modal-dialog {
-		height: calc(100vh - 100px);
+		height: calc(100vh - 82px);
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		.modal-content {
 			height: fit-content;
-			background-color: white;
+			background-color: $black;
+			color: $revell;
 			opacity: 1;
 			.modal-body {
 				.form-wrapper {
-					color: black;
+					.form-title {
+						color: $revell;
+					}
 					.form-control {
 						border: 1px solid $gray;
-						font-size: 14px;
-						border-radius: 5px;
+						font-size: 18px;
 						margin-bottom: 5px;
 						box-sizing: border-box;
-						padding: 8px 15px;
+						padding: 5px 15px;
 						margin-top: 20px;
 						width: 50%;
+						background-color: transparent;
+						border: none;
+						border-radius: 0;
+						border-bottom: 1px solid rgb(8 161 8 / 40%);
+						color: white;
 						@extend .justify-align--center;
 						&:focus {
 							box-shadow: none;
+							background: transparent;
 						}
+					}
+					.checkbox-wrapper {
+						position: relative;
+						.checkbox-input {
+							width: 50px;
+							height: 50px;
+							background: transparent;
+							border-radius: 50px;
+							margin-right: 5px;
+							z-index: 1;
+							position: absolute;
+							top: 0;
+							left: 0;
+						}
+						.profile-img {
+							width: 50px;
+							z-index: 0;
+						}
+					}
+					.form-label {
+						font-size: 18px;
+					}
+					.cancel-btn {
+						color: '#EAF4EF' !important;
 					}
 				}
 			}
