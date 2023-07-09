@@ -23,7 +23,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 		amountStatus: false
 	};
 	const storedMembers = localStorage.getItem('groupMembers');
-	const getMembers = JSON.parse(storedMembers as string);
+	const getMembers = storedMembers && JSON.parse(storedMembers as string);
 
 	localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
 
@@ -84,16 +84,19 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 								{errors.whoPaid && touched.whoPaid ? (
 									<div className='error'>{errors.whoPaid}</div>
 								) : null}
-								<div className='flex justify-content--between mt--20'>
-									{getMembers.map((item: any) => (
-										<Field
-											key={item.value}
-											name='involvedFriends'
-											component={CheckboxInput}
-											label={item.label}
-											additionalProp={initialData.whoPaid}
-										/>
-									))}
+								<div className='flex flex--column  mt--20'>
+									<p>Part of the Expense :</p>
+									<div className='flex justify-content--between mt--10'>
+										{getMembers.map((item: any) => (
+											<Field
+												key={item.value}
+												name='involvedFriends'
+												component={CheckboxInput}
+												label={item.label}
+												additionalProp={initialData.whoPaid}
+											/>
+										))}
+									</div>
 								</div>
 							</div>
 

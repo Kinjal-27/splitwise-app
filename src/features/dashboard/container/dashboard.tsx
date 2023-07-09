@@ -1,21 +1,40 @@
+import { useState, FC } from 'react';
 import { Button } from 'react-bootstrap';
-import React, { useState, FC } from 'react';
+
 import Header from 'shared/components/header/header';
 import CustomModal from 'shared/modal/modal';
+import { IObj } from 'shared/interface';
 import AddExpenses from '../components/addExpense';
 import ExpenseList from '../components/expenseList';
+import { profileImgMapper } from '../constants/constant';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/dashboard.scss';
 
 const Dashboard: FC = () => {
 	const [isOpenModel, setIsOpenModel] = useState(false);
+
+	const storedMembers = localStorage.getItem('groupMembers');
+	const getMembers = storedMembers && JSON.parse(storedMembers as string);
+
 	return (
 		<>
 			<Header />
-			<div className='dashboard-wrapper content-container'>
-				<Button className='btn btn-success mt--30' onClick={() => setIsOpenModel(true)}>
-					Add Expenses
-				</Button>
+			<div className='dashboard-wrapper'>
+				<div className='flex justify-content--between'>
+					<Button className='btn btn-success mt--10' onClick={() => setIsOpenModel(true)}>
+						Add Expense
+					</Button>
+					<div className='flex profile-group-wrapper'>
+						{getMembers.map((members: IObj, index: number) => {
+							return (
+								<div className='position--relative cursor--pointer tooltip-wrapper'>
+									<img src={profileImgMapper[members.label]} alt='profile' className='profile-img' />
+									<span className='tooltip-text font-size--lg mt--5'>{members.label}</span>
+								</div>
+							);
+						})}
+					</div>
+				</div>
 				{isOpenModel && (
 					<CustomModal show={true} handleClose={() => setIsOpenModel(!isOpenModel)}>
 						<AddExpenses handleClose={() => setIsOpenModel(!isOpenModel)} />

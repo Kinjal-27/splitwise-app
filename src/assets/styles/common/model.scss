@@ -71,6 +71,10 @@
 						top: 0;
 						left: 0;
 					}
+					input[type='checkbox']:checked {
+						border: 5px solid rgb(115 239 238 / 47%);
+						background: rgb(151 237 235 / 36%);
+					}
 					.profile-img {
 						width: 50px;
 						z-index: 0;
