@@ -2,11 +2,11 @@ import { Field, Form, Formik } from 'formik';
 import { FC } from 'react';
 import { Button } from 'react-bootstrap';
 import { IFormikValues } from '../interface/dashboard';
-import groupMembers from 'assets/JSONDATA/groupMembers.json';
 import { ReactSelect } from 'shared/components/form/reactSelect';
 import { REACT_SELECT_STYLE, STATUS_REACT_SELECT_STYLE } from 'shared/constants/constants';
 import * as schema from 'shared/constants/validation-schema';
 import { IOption } from 'shared/interface';
+import groupMembers from 'assets/JSONDATA/groupMembers.json';
 import CheckboxInput from '../components/checkboxInput';
 
 interface ICommonFormProps {
