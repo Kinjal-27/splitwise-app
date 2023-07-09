@@ -27,7 +27,7 @@ const Dashboard: FC = () => {
 					<div className='flex profile-group-wrapper'>
 						{getMembers.map((members: IObj, index: number) => {
 							return (
-								<div className='position--relative cursor--pointer tooltip-wrapper'>
+								<div key={index} className='position--relative cursor--pointer tooltip-wrapper'>
 									<img src={profileImgMapper[members.label]} alt='profile' className='profile-img' />
 									<span className='tooltip-text font-size--lg mt--5'>{members.label}</span>
 								</div>
