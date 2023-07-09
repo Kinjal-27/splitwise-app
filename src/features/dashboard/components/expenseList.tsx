@@ -2,20 +2,24 @@ import { FC, useEffect, useState, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { getRandomColor } from 'shared/util/utility';
 import { profileImgMapper } from '../constants/constant';
-import { IFormikValues } from '../interface/dashboard';
+import { IExpenseDataProps } from '../interface/dashboard';
+import ThumbsUp from 'assets/images/thumbsUp2.gif';
 
 const ExpenseList: FC = () => {
-	const [getExpenseData, setExpenseData] = useState<IFormikValues[]>([]);
+	const [getExpenseData, setExpenseData] = useState<IExpenseDataProps[]>([]);
 	const [isSettleUp, setIsSettleUp] = useState(false);
 	const expenseList = localStorage.getItem('Expenses');
 	const expenseListData = expenseList && JSON.parse(expenseList);
 	useEffect(() => {
 		setExpenseData(expenseListData);
 	}, [localStorage.setItem]);
+
 	const handleSettleUp = useCallback(
 		(summaryIndex: number) => {
 			setIsSettleUp(true);
-			const index = expenseListData.findIndex((expenseData: any, index: number) => index === summaryIndex);
+			const index = expenseListData.findIndex(
+				(expenseData: IExpenseDataProps, index: number) => index === summaryIndex
+			);
 
 			if (index !== -1) {
 				const updatedArr = [...expenseListData];
@@ -24,7 +28,7 @@ const ExpenseList: FC = () => {
 				setExpenseData(updatedArr);
 			}
 		},
-		[isSettleUp]
+		[localStorage.setItem, isSettleUp]
 	);
 
 	return (
@@ -33,7 +37,7 @@ const ExpenseList: FC = () => {
 			<div className='flex flex--wrap justify-content--between'>
 				{expenseListData &&
 					Array.isArray(expenseListData) &&
-					expenseListData.map((expense: any, index: number) => {
+					expenseListData.map((expense: IExpenseDataProps, index: number) => {
 						const { amount, description, involvedFriends, whoPaid, date, amountStatus } = expense;
 
 						return (
@@ -56,7 +60,10 @@ const ExpenseList: FC = () => {
 											SETTLE UP
 										</Button>
 									) : (
-										<p className='settled-text'>SETTLED</p>
+										<div className='flex align-items--center'>
+											{<img src={ThumbsUp} alt='thumbsup' className='width--50px height--50px' />}
+											<p className='settled-text'>SETTLED</p>
+										</div>
 									)}
 								</div>
 
@@ -78,7 +85,9 @@ const ExpenseList: FC = () => {
 												<p className='font-size--xxs' style={{ color: `${getRandomColor()}` }}>
 													{amountStatus
 														? 'paid $ 0.00'
-														: `Owes  ${(amount / involvedFriends.length).toFixed(2)}`}
+														: `Owes  ${(Number(amount) / involvedFriends.length).toFixed(
+																2
+														  )}`}
 												</p>
 											</div>
 										);

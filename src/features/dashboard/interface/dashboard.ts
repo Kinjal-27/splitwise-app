@@ -1,4 +1,4 @@
-export interface IFormikValues {
+export interface IExpenseDataProps {
 	description: string;
 	amount: string;
 	whoPaid: string;

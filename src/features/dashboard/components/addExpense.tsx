@@ -1,12 +1,12 @@
-import { Field, Form, Formik } from 'formik';
 import { FC } from 'react';
+import { Field, Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
-import { IFormikValues } from '../interface/dashboard';
 import { ReactSelect } from 'shared/components/form/reactSelect';
 import { REACT_SELECT_STYLE, STATUS_REACT_SELECT_STYLE } from 'shared/constants/constants';
 import * as schema from 'shared/constants/validation-schema';
-import { IOption } from 'shared/interface';
+import { IObj, IOption } from 'shared/interface';
 
+import { IExpenseDataProps } from '../interface/dashboard';
 import CheckboxInput from '../components/checkboxInput';
 
 interface ICommonFormProps {
@@ -27,7 +27,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 
 	const formattedDate = new Date().toLocaleString('en-us', { month: 'short', year: 'numeric', day: '2-digit' }) + '';
 
-	const handleSubmit = (values: IFormikValues) => {
+	const handleSubmit = (values: IExpenseDataProps) => {
 		values.date = formattedDate;
 		const storedArray = JSON.parse(localStorage.getItem('Expenses') || '[]');
 		storedArray.push(values);
@@ -87,7 +87,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 								<div className='flex flex--column  mt--30'>
 									<p className='form-label'>Part of the Expense :</p>
 									<div className='flex justify-content--between mt--10'>
-										{getMembers.map((item: any) => (
+										{getMembers.map((item: IObj) => (
 											<Field
 												key={item.value}
 												name='involvedFriends'
