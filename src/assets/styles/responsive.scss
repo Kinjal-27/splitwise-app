@@ -130,6 +130,10 @@
 			font-weight: 500;
 			padding: 3px 7px;
 		}
+		.add-btn {
+			padding: 5px 10px !important;
+			height: auto !important;
+		}
 	}
 }
 @media screen and (max-width: 768px) {
@@ -163,6 +167,20 @@
 			padding: 5px 10px;
 			font-size: 18px;
 			height: 37px;
+		}
+		.add-btn {
+			border-radius: 50%;
+			padding: 10px;
+			height: 50px !important;
+			width: 50px !important;
+			.add-btn-text {
+				display: none;
+			}
+			.add-expense-svg {
+				width: 30px;
+				height: 30px;
+				margin-right: 0;
+			}
 		}
 	}
 }

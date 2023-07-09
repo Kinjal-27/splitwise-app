@@ -5,7 +5,7 @@
 	top: 0;
 	left: 0;
 	z-index: 99;
-	background: rgb(169 174 172 / 31%);
+	background: rgba(49, 49, 49, 0.5);
 
 	// .modal__body {
 	// 	.scroll-with--sticky-header {
@@ -33,13 +33,14 @@
 		align-items: center;
 		.modal-content {
 			height: fit-content;
-			background-color: $black;
-			color: $revell;
+			background-color: $beige;
+			color: rgba(27, 27, 27, 0.87);
+			border: 1px solid green;
 			opacity: 1;
 			.modal-body {
 				.form-wrapper {
 					.form-title {
-						color: $revell;
+						color: rgba(27, 27, 27, 0.87);
 						font-size: 30px;
 					}
 					.form-control {
@@ -53,7 +54,7 @@
 						border: none;
 						border-radius: 0;
 						border-bottom: 1px solid rgb(8 161 8 / 40%);
-						color: white;
+						color: rgba(27, 27, 27, 0.87);
 						@extend .justify-align--center;
 						&:focus {
 							box-shadow: none;
@@ -72,8 +73,8 @@
 						left: 0;
 					}
 					input[type='checkbox']:checked {
-						border: 5px solid rgb(115 239 238 / 47%);
-						background: rgb(151 237 235 / 36%);
+						border: 3px solid rgb(51 146 146 / 65%);
+						background: rgb(24 94 92 / 50%);
 					}
 					.profile-img {
 						width: 50px;
@@ -84,8 +85,8 @@
 						margin-bottom: 0;
 					}
 					.cancel-btn {
-						color: '#EAF4EF' !important;
-						background-color: #9b0a0a;
+						color: '#eee' !important;
+						background-color: #9e3809;
 						border: none;
 						width: 123px;
 					}

@@ -10,20 +10,23 @@ const DATE_AND_TIME_REGEX = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])*$/;
 const REACT_SELECT_STYLE = {
 	option: (base: CSSProperties, state: any) => ({
 		...base,
+		...state,
 		fontSize: '13px',
 		fontWeight: '$font-regular',
-		borderBottom: '1px solid #e7e7e7',
+		borderBottom: '1px solid rgb(8 161 8 / 40%)',
 		padding: 5,
-		color: 'black',
-		backgroundColor: state.isSelected ? '#00FFFFFF' : state.isFocused ? '#00FFFFFF' : '',
+		backgroundColor: state.isSelected ? '#198754' : state.isFocused ? '#198754' : '',
 		':active': {
-			backgroundColor: '#00FFFFFF'
+			backgroundColor: '#198754',
+			color: 'white'
 		},
 		':hover': {
-			backgroundColor: '#00FFFFFF'
+			backgroundColor: '#198754',
+			color: 'white'
 		},
 		':focus': {
-			backgroundColor: '#00FFFFFF',
+			backgroundColor: '#198754',
+			color: 'white',
 			outline: 0
 		},
 		whiteSpace: 'nowrap',
@@ -40,18 +43,20 @@ const REACT_SELECT_STYLE = {
 		borderRadius: '5px',
 		border: 'none',
 		boxShadow: 'none',
-		backgroundColor: 'black'
+		backgroundColor: 'white',
+		color: 'rgba(27, 27, 27, 0.87)'
 	}),
 	menuList: (base: CSSProperties) => ({
 		...base,
 		padding: 0,
-		backgroundColor: '#000',
+		backgroundColor: 'white',
 		width: '100%',
-		border: '1px solid #e7e7e7',
+		border: '1px solid rgb(8 161 8 / 40%)',
 		borderRadius: '5px',
-		maxWidth: '205px',
+		maxWidth: '220px',
 		maxHeight: '250px',
-		boxShadow: 'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.25) 0px 2px 10px 0px'
+		boxShadow: 'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.25) 0px 2px 10px 0px',
+		color: 'rgba(27, 27, 27, 0.87)'
 	}),
 	clearIndicator: (base: CSSProperties) => ({
 		...base,
@@ -71,51 +76,41 @@ const REACT_SELECT_STYLE = {
 		const transition = 'opacity 300ms';
 		return { ...base, opacity: opacity, transition: transition };
 	},
-	control: () => ({
+	control: (base: CSSProperties, state: any) => ({
+		...base,
 		display: 'flex',
 		width: '100%',
-		maxWidth: '195px',
-		border: '1px solid rgb(8 161 8 / 40%)',
 		borderRadius: '5px',
 		padding: '2px 4px',
 		cursor: 'pointer',
-		color: '$spanish-gray',
+		color: 'rgba(27, 27, 27, 0.87)',
 		fontSize: '13px',
-		fontWeight: '$font-regular'
-	}),
-	container: () => ({
-		width: '100%',
-		maxWidth: '220px',
-		position: 'relative',
-		fontSize: '13px',
-		backgroundColor: '#00000000'
-	}),
-	placeholder: (base: CSSProperties) => ({
-		...base,
-		color: 'white',
-		fontSize: '14px',
-		fontWeight: '$font-medium'
-	})
-};
-const STATUS_REACT_SELECT_STYLE = {
-	control: (base: CSSProperties) => ({
-		...base,
+		fontWeight: '$font-regular',
+		background: 'white',
 		maxWidth: '230px',
 		border: '1px solid rgb(8 161 8 / 40%)',
 		':hover': {
 			border: '1px solid rgb(8 161 8 / 40%)'
 		},
+		':focus': {
+			color: 'white'
+		},
 		boxShadow: '0 0 0 0	rgb(8 161 8 / 40%)'
 	}),
-	menuList: (base: CSSProperties) => ({
+	container: (base: CSSProperties, state: any) => ({
 		...base,
-		paddingTop: '0px',
-		paddingBottom: '0px',
-		maxWidth: '230px'
+		width: '100%',
+		maxWidth: '220px',
+		position: 'relative',
+		fontSize: '13px',
+		background: 'transparent !important',
+		color: 'white'
 	}),
-	menu: (base: CSSProperties) => ({
+	placeholder: (base: CSSProperties) => ({
 		...base,
-		maxWidth: '230px'
+		color: 'black !important',
+		fontSize: '14px',
+		fontWeight: '$font-medium'
 	})
 };
 
@@ -125,6 +120,7 @@ export {
 	PASSWORD_VALIDATOR_REGEX,
 	EMAIL_VALIDATOR_REGEX,
 	DATE_AND_TIME_REGEX,
-	REACT_SELECT_STYLE,
-	STATUS_REACT_SELECT_STYLE
+	REACT_SELECT_STYLE
+	// STATUS_REACT_SELECT_STYLE,
+	// DROPDOWN_STYLES
 };

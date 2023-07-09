@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Field, Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
 import { ReactSelect } from 'shared/components/form/reactSelect';
-import { REACT_SELECT_STYLE, STATUS_REACT_SELECT_STYLE } from 'shared/constants/constants';
+import { REACT_SELECT_STYLE } from 'shared/constants/constants';
 import * as schema from 'shared/constants/validation-schema';
 import { IObj, IOption } from 'shared/interface';
 
@@ -71,11 +71,12 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 										Who paid :{' '}
 									</label>
 									<ReactSelect
-										styles={{ ...REACT_SELECT_STYLE, ...STATUS_REACT_SELECT_STYLE }}
+										styles={{ ...REACT_SELECT_STYLE }}
 										options={getMembers}
 										isMulti={false}
 										isSearchable={false}
 										name='whoPaid'
+										className='text--white'
 										onChange={(selectedOption: IOption) => {
 											setFieldValue('whoPaid', selectedOption.label);
 										}}
@@ -101,20 +102,14 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 							</div>
 
 							<div className='flex justify-content--end'>
-								<div className=' mr--20'>
-									<Button
-										type='button'
-										className='btn cancel-btn mt--40'
-										onClick={() => handleClose()}
-									>
-										Cancel
-									</Button>
-								</div>
-								<div className='submit-btn'>
+								<div className='submit-btn mr--20'>
 									<Button type='submit' className='button btn btn-success mt--40'>
 										Add Expense
 									</Button>
 								</div>
+								<Button type='button' className='btn cancel-btn mt--40' onClick={() => handleClose()}>
+									Cancel
+								</Button>
 							</div>
 						</Form>
 					);

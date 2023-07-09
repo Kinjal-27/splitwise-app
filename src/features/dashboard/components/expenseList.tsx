@@ -3,7 +3,6 @@ import { Button } from 'react-bootstrap';
 import { getRandomColor } from 'shared/util/utility';
 import { profileImgMapper } from '../constants/constant';
 import { IExpenseDataProps } from '../interface/dashboard';
-import ThumbsUp from 'assets/images/thumbsUp2.gif';
 
 const ExpenseList: FC = () => {
 	const [getExpenseData, setExpenseData] = useState<IExpenseDataProps[]>([]);
@@ -13,7 +12,6 @@ const ExpenseList: FC = () => {
 	useEffect(() => {
 		setExpenseData(expenseListData);
 	}, [localStorage.setItem]);
-
 	const handleSettleUp = useCallback(
 		(summaryIndex: number) => {
 			setIsSettleUp(true);
@@ -60,10 +58,7 @@ const ExpenseList: FC = () => {
 											SETTLE UP
 										</Button>
 									) : (
-										<div className='flex align-items--center'>
-											{<img src={ThumbsUp} alt='thumbsup' className='width--50px height--50px' />}
-											<p className='settled-text'>SETTLED</p>
-										</div>
+										<p className='settled-text'>SETTLED</p>
 									)}
 								</div>
 

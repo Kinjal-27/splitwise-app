@@ -1183,7 +1183,7 @@
 }
 
 .text--white {
-	color: $white;
+	color: $white impo !important;
 	&.with-opacity-50 {
 		opacity: 0.5;
 	}
@@ -1520,9 +1520,10 @@
 	width: 100%;
 	top: 0;
 	z-index: 3;
-	background: $pure-black;
+	background: $beige;
+	color: $black;
 	.titlt {
-		color: $revell;
+		color: $black;
 	}
 	.logo-img {
 		width: 50px;
