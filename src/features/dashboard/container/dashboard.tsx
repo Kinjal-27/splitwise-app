@@ -25,14 +25,19 @@ const Dashboard: FC = () => {
 						Add Expense
 					</Button>
 					<div className='flex profile-group-wrapper'>
-						{getMembers.map((members: IObj, index: number) => {
-							return (
-								<div key={index} className='position--relative cursor--pointer tooltip-wrapper'>
-									<img src={profileImgMapper[members.label]} alt='profile' className='profile-img' />
-									<span className='tooltip-text font-size--lg mt--5'>{members.label}</span>
-								</div>
-							);
-						})}
+						{getMembers.length > 0 &&
+							getMembers.map((members: IObj, index: number) => {
+								return (
+									<div key={index} className='position--relative cursor--pointer tooltip-wrapper'>
+										<img
+											src={profileImgMapper[members.label]}
+											alt='profile'
+											className='profile-img'
+										/>
+										<span className='tooltip-text font-size--lg mt--5'>{members.label}</span>
+									</div>
+								);
+							})}
 					</div>
 				</div>
 				{isOpenModel && (
