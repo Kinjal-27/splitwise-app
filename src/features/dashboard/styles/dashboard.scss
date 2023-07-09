@@ -87,6 +87,17 @@
 		font-size: 16px;
 		font-weight: 500;
 	}
+	.add-btn {
+		height: 45px;
+		font-size: 18px !important;
+		font-weight: 500;
+		border-radius: 20px;
+		.add-expense-svg {
+			width: 25px;
+			height: 30px;
+			margin-right: 5px;
+		}
+	}
 	.settle-up-btn {
 		background: #46a3d1;
 		border: none;

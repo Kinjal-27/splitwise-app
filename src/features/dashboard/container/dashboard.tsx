@@ -8,6 +8,7 @@ import AddExpenses from '../components/addExpense';
 import ExpenseList from '../components/expenseList';
 import { profileImgMapper } from '../constants/constant';
 import groupMembers from 'assets/JSONDATA/groupMembers.json';
+import { AddExpense, Expenses, ExpensesItem } from 'shared/components/icons/icons';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/dashboard.scss';
 
@@ -24,8 +25,9 @@ const Dashboard: FC = () => {
 			<Header />
 			<div className='dashboard-wrapper'>
 				<div className='flex justify-content--between align-items--center'>
-					<Button className='btn btn-success mt--10' onClick={() => setIsOpenModel(true)}>
-						Add Expense
+					<Button className='justify-align--center add-btn btn-success' onClick={() => setIsOpenModel(true)}>
+						<AddExpense className='add-expense-svg' />
+						<p className='add-btn-text'>Add Expense</p>
 					</Button>
 					<div className='flex profile-group-wrapper'>
 						{getMembers &&
