@@ -48,7 +48,7 @@ const ExpenseList: FC = () => {
 									<p>
 										<span className='font-size--xxl'>${amount} </span> paid by{' '}
 										<span className='font-size-xxl' style={{ color: `${getRandomColor()}` }}>
-											{whoPaid}
+											{whoPaid === 'Lily' ? 'You' : `${whoPaid}`}
 										</span>{' '}
 									</p>
 									{!amountStatus ? (
@@ -60,17 +60,19 @@ const ExpenseList: FC = () => {
 									)}
 								</div>
 
-								<div className='flex mt--15'>
+								<div className='flex flex--wrap mt--15'>
 									{involvedFriends.map((friendName: string, index: number) => {
 										return (
-											<div className='flex flex--column align-items--center mr--10'>
+											<div className='member-amount-wrapper flex flex--column align-items--center mr--10'>
 												<img
 													key={index}
 													src={profileImgMapper[friendName]}
 													alt='profile-img'
-													className='expense-list-img'
+													className='friend-img'
 												/>
-												<p className='mt--5 font-size--lg'>{friendName}</p>
+												<p className='friend-name mt--5 font-size--lg'>
+													{friendName === 'Lily' ? 'You' : `${friendName}`}
+												</p>
 												<p className='font-size--xxs' style={{ color: `${getRandomColor()}` }}>
 													{amountStatus
 														? 'paid $ 0.00'

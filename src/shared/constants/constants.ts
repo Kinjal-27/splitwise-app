@@ -7,16 +7,6 @@ const PASSWORD_VALIDATOR_REGEX = /^(?=.{8,})(?!.*[\s])(?=.*[a-z])(?=.*[A-Z])(?=.
 const EMAIL_VALIDATOR_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const DATE_AND_TIME_REGEX = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])*$/;
 
-enum HASHTAG {
-	'hashtag' = 'Hashtag Name',
-	'slug' = 'Slug',
-	'is_active' = 'Status',
-	'is_sponsored_by' = 'Sponsored by',
-	'priority' = 'Priority',
-	'meta_title' = 'Meta Title',
-	'meta_description' = 'Meta Description'
-}
-
 const REACT_SELECT_STYLE = {
 	option: (base: CSSProperties, state: any) => ({
 		...base,
@@ -25,15 +15,15 @@ const REACT_SELECT_STYLE = {
 		borderBottom: '1px solid #e7e7e7',
 		padding: 5,
 		color: 'black',
-		backgroundColor: state.isSelected ? '#d5d5d5' : state.isFocused ? '#e7e7e7' : '',
+		backgroundColor: state.isSelected ? '#00FFFFFF' : state.isFocused ? '#00FFFFFF' : '',
 		':active': {
-			backgroundColor: '#e7e7e7'
+			backgroundColor: '#00FFFFFF'
 		},
 		':hover': {
-			backgroundColor: '#e7e7e7'
+			backgroundColor: '#00FFFFFF'
 		},
 		':focus': {
-			backgroundColor: '#e7e7e7',
+			backgroundColor: '#00FFFFFF',
 			outline: 0
 		},
 		whiteSpace: 'nowrap',
@@ -42,7 +32,7 @@ const REACT_SELECT_STYLE = {
 	}),
 	menu: (base: CSSProperties) => ({
 		...base,
-		zIndex: 3,
+		zIndex: 6,
 		marginTop: 0,
 		position: 'absolute',
 		top: '49px',
@@ -85,7 +75,7 @@ const REACT_SELECT_STYLE = {
 		display: 'flex',
 		width: '100%',
 		maxWidth: '195px',
-		border: '1px solid #3ea4a6',
+		border: '1px solid rgb(8 161 8 / 40%)',
 		borderRadius: '5px',
 		padding: '2px 4px',
 		cursor: 'pointer',
@@ -97,7 +87,8 @@ const REACT_SELECT_STYLE = {
 		width: '100%',
 		maxWidth: '220px',
 		position: 'relative',
-		fontSize: '13px'
+		fontSize: '13px',
+		backgroundColor: '#00000000'
 	}),
 	placeholder: (base: CSSProperties) => ({
 		...base,
@@ -110,11 +101,11 @@ const STATUS_REACT_SELECT_STYLE = {
 	control: (base: CSSProperties) => ({
 		...base,
 		maxWidth: '230px',
-		border: '1px solid #3ea4a6',
+		border: '1px solid rgb(8 161 8 / 40%)',
 		':hover': {
-			border: '1px solid #3ea4a6'
+			border: '1px solid rgb(8 161 8 / 40%)'
 		},
-		boxShadow: '0 0 0 0	#3ea4a6'
+		boxShadow: '0 0 0 0	rgb(8 161 8 / 40%)'
 	}),
 	menuList: (base: CSSProperties) => ({
 		...base,
@@ -134,7 +125,6 @@ export {
 	PASSWORD_VALIDATOR_REGEX,
 	EMAIL_VALIDATOR_REGEX,
 	DATE_AND_TIME_REGEX,
-	HASHTAG,
 	REACT_SELECT_STYLE,
 	STATUS_REACT_SELECT_STYLE
 };

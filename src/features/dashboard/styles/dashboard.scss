@@ -18,9 +18,16 @@
 				color: rgb(163, 159, 159);
 				font-size: 16px;
 			}
-			.expense-list-img {
+			.friend-img {
 				width: 50px;
 				height: 50px;
+			}
+			.settled-text {
+				border: 1px solid rgb(206, 175, 118);
+				color: rgb(206, 175, 118);
+				padding: 5px 10px;
+				border-radius: 8px;
+				font-size: 18px;
 			}
 		}
 	}
@@ -36,7 +43,7 @@
 		.profile-img {
 			width: 50px;
 			border-radius: 50px;
-			margin-right: -18px;
+			margin-right: -15px;
 		}
 		.tooltip-wrapper {
 			position: relative;
@@ -87,13 +94,6 @@
 		&:hover {
 			opacity: 0.8;
 		}
-	}
-	.settled-text {
-		border: 1px solid rgb(206, 175, 118);
-		color: rgb(206, 175, 118);
-		padding: 5px 10px;
-		border-radius: 8px;
-		font-size: 18px;
 	}
 }
 

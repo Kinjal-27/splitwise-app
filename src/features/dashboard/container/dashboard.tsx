@@ -20,7 +20,7 @@ const Dashboard: FC = () => {
 		<>
 			<Header />
 			<div className='dashboard-wrapper'>
-				<div className='flex justify-content--between'>
+				<div className='flex justify-content--between align-items--center'>
 					<Button className='btn btn-success mt--10' onClick={() => setIsOpenModel(true)}>
 						Add Expense
 					</Button>

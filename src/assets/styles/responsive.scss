@@ -101,6 +101,37 @@
 		max-width: calc(100% - 40px);
 	}
 }
+
+@media screen and (max-width: 930px) {
+	.dashboard-wrapper {
+		.expense-list-wrapper {
+			.expense-card {
+				width: 43%;
+				.expense-list-img {
+					width: 35px;
+					height: 35px;
+				}
+			}
+			.member-amount-wrapper {
+				margin-right: 5px;
+			}
+			.settled-text {
+				padding: 3px 7px;
+				font-size: 16px;
+			}
+		}
+		.profile-group-wrapper {
+			.profile-img {
+				width: 45px;
+			}
+		}
+		.btn {
+			height: 33px;
+			font-weight: 500;
+			padding: 3px 7px;
+		}
+	}
+}
 @media screen and (max-width: 768px) {
 	.show--md {
 		display: none;
@@ -109,15 +140,95 @@
 	.hide--md {
 		display: block;
 	}
+	.dashboard-wrapper {
+		.expense-list-wrapper {
+			.expense-card {
+				width: 100%;
+				.expense-list-img {
+					width: 50px;
+					height: 50px;
+				}
+			}
+			.settled-text {
+				padding: 5px 10px;
+				font-size: 18px;
+			}
+		}
+		.profile-group-wrapper {
+			.profile-img {
+				width: 50px;
+			}
+		}
+		.btn {
+			padding: 5px 10px;
+			font-size: 18px;
+			height: 37px;
+		}
+	}
 }
 
-@media screen and (max-width: 576px) {
-	.show--sm {
-		display: none;
-	}
+@media screen and (max-width: 500px) {
+	.dashboard-wrapper {
+		padding: 15px;
+		.expense-list-wrapper {
+			.expense-list-title {
+				font-size: 20px;
+			}
+			.expense-card {
+				.friend-img {
+					display: none;
+				}
+				.expense-description {
+					font-size: 20px;
+				}
+				.date-text {
+					font-size: 12px;
+				}
+			}
 
-	.hide--sm {
-		display: block;
+			.settled-text {
+				padding: 2px 7px;
+				font-size: 14px;
+			}
+			.member-amount-wrapper {
+				margin-right: 15px;
+				.friend-name {
+					font-size: 14px;
+				}
+			}
+		}
+		.profile-group-wrapper {
+			.profile-img {
+				width: 40px;
+			}
+		}
+		.btn {
+			padding: 1px 5px;
+			font-size: 14px;
+			height: 28px;
+		}
+	}
+	.modal {
+		.modal-dialog {
+			.modal-content {
+				.modal-body {
+					.form-wrapper {
+						.form-title {
+							font-size: 26px;
+						}
+						.form-label {
+							font-size: 15px;
+						}
+						.checkbox-input {
+							width: 45px;
+						}
+						.profile-img {
+							width: 45px;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 @media screen and (max-width: 425px) {

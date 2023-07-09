@@ -52,7 +52,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 							<div className='form-inputs'>
 								<div className='flex width--full justify-content--between align-items--end'>
 									<label htmlFor='description' className='form-label'>
-										enter a description:{' '}
+										Enter a description :{' '}
 									</label>
 									<Field name='description' className='form-control' />
 								</div>
@@ -61,14 +61,14 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 								) : null}
 								<div className='flex width--full justify-content--between align-items--end'>
 									<label htmlFor='amount' className='form-label'>
-										enter the $ amount:{' '}
+										Enter the $ amount :{' '}
 									</label>
 									<Field name='amount' className='form-control' />
 								</div>
 								{errors.amount && touched.amount ? <div className='error'>{errors.amount}</div> : null}
 								<div className='flex width--full justify-content--between align-items--end mt--30'>
 									<label htmlFor='whoPaid' className='form-label'>
-										who paid:{' '}
+										Who paid :{' '}
 									</label>
 									<ReactSelect
 										styles={{ ...REACT_SELECT_STYLE, ...STATUS_REACT_SELECT_STYLE }}
@@ -85,7 +85,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									<div className='error'>{errors.whoPaid}</div>
 								) : null}
 								<div className='flex flex--column  mt--20'>
-									<p>Part of the Expense :</p>
+									<p className='form-label'>Part of the Expense :</p>
 									<div className='flex justify-content--between mt--10'>
 										{getMembers.map((item: any) => (
 											<Field
@@ -101,8 +101,12 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 							</div>
 
 							<div className='flex justify-content--end'>
-								<div className='cancel-btn mr--20'>
-									<Button type='submit' className='btn btn-danger mt--40'>
+								<div className=' mr--20'>
+									<Button
+										type='button'
+										className='btn cancel-btn mt--40'
+										onClick={() => handleClose()}
+									>
 										Cancel
 									</Button>
 								</div>
