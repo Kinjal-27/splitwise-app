@@ -6,7 +6,7 @@ import { ReactSelect } from 'shared/components/form/reactSelect';
 import { REACT_SELECT_STYLE, STATUS_REACT_SELECT_STYLE } from 'shared/constants/constants';
 import * as schema from 'shared/constants/validation-schema';
 import { IOption } from 'shared/interface';
-import groupMembers from 'assets/JSONDATA/groupMembers.json';
+
 import CheckboxInput from '../components/checkboxInput';
 
 interface ICommonFormProps {
@@ -24,8 +24,6 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 	};
 	const storedMembers = localStorage.getItem('groupMembers');
 	const getMembers = storedMembers && JSON.parse(storedMembers as string);
-
-	localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
 
 	const formattedDate = new Date().toLocaleString('en-us', { month: 'short', year: 'numeric', day: '2-digit' }) + '';
 
@@ -57,7 +55,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									<Field name='description' className='form-control' />
 								</div>
 								{errors.description && touched.description ? (
-									<div className='error'>{errors.description}</div>
+									<div className='error flex justify-content--end'>{errors.description}</div>
 								) : null}
 								<div className='flex width--full justify-content--between align-items--end'>
 									<label htmlFor='amount' className='form-label'>
@@ -65,8 +63,10 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									</label>
 									<Field name='amount' className='form-control' />
 								</div>
-								{errors.amount && touched.amount ? <div className='error'>{errors.amount}</div> : null}
-								<div className='flex width--full justify-content--between align-items--end mt--30'>
+								{errors.amount && touched.amount ? (
+									<div className='error flex justify-content--end'>{errors.amount}</div>
+								) : null}
+								<div className='flex width--full justify-content--between align-items--end mt--20'>
 									<label htmlFor='whoPaid' className='form-label'>
 										Who paid :{' '}
 									</label>
@@ -82,9 +82,9 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									/>
 								</div>
 								{errors.whoPaid && touched.whoPaid ? (
-									<div className='error'>{errors.whoPaid}</div>
+									<div className='error flex justify-content--end'>{errors.whoPaid}</div>
 								) : null}
-								<div className='flex flex--column  mt--20'>
+								<div className='flex flex--column  mt--30'>
 									<p className='form-label'>Part of the Expense :</p>
 									<div className='flex justify-content--between mt--10'>
 										{getMembers.map((item: any) => (

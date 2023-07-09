@@ -7,16 +7,17 @@ import { IObj } from 'shared/interface';
 import AddExpenses from '../components/addExpense';
 import ExpenseList from '../components/expenseList';
 import { profileImgMapper } from '../constants/constant';
+import groupMembers from 'assets/JSONDATA/groupMembers.json';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/dashboard.scss';
 
 const Dashboard: FC = () => {
 	const [isOpenModel, setIsOpenModel] = useState(false);
 
+	localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
+
 	const storedMembers = localStorage.getItem('groupMembers');
 	const getMembers = storedMembers && JSON.parse(storedMembers as string);
-
-	console.log(getMembers);
 
 	return (
 		<>

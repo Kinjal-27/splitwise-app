@@ -63,9 +63,11 @@ const ExpenseList: FC = () => {
 								<div className='flex flex--wrap mt--15'>
 									{involvedFriends.map((friendName: string, index: number) => {
 										return (
-											<div className='member-amount-wrapper flex flex--column align-items--center mr--10'>
+											<div
+												key={index}
+												className='member-amount-wrapper flex flex--column align-items--center mr--10'
+											>
 												<img
-													key={index}
 													src={profileImgMapper[friendName]}
 													alt='profile-img'
 													className='friend-img'

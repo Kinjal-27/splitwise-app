@@ -1343,7 +1343,7 @@
 
 .error {
 	color: getColor($red, 200);
-	@include marginTop(10px);
+	@include marginTop(5px);
 }
 
 /* Image 
@@ -1515,7 +1515,7 @@
 
 .header-wrapper {
 	padding: 15px 20px;
-	border-bottom: 1px solid rgb(8 161 8 / 40%);
+	border-bottom: 2px solid rgb(8 161 8 / 40%);
 	position: fixed;
 	width: 100%;
 	top: 0;
