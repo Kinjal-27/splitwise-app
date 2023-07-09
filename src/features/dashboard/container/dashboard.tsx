@@ -16,6 +16,8 @@ const Dashboard: FC = () => {
 	const storedMembers = localStorage.getItem('groupMembers');
 	const getMembers = storedMembers && JSON.parse(storedMembers as string);
 
+	console.log(getMembers);
+
 	return (
 		<>
 			<Header />
@@ -25,7 +27,8 @@ const Dashboard: FC = () => {
 						Add Expense
 					</Button>
 					<div className='flex profile-group-wrapper'>
-						{getMembers.length > 0 &&
+						{getMembers &&
+							Array.isArray(getMembers) &&
 							getMembers.map((members: IObj, index: number) => {
 								return (
 									<div key={index} className='position--relative cursor--pointer tooltip-wrapper'>
