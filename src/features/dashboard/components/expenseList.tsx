@@ -31,7 +31,7 @@ const ExpenseList: FC = () => {
 
 	return (
 		<div className='expense-list-wrapper'>
-			<h5 className='expense-list-title mt--30'>Recently Added</h5>
+			<h5 className='expense-list-title mt--10'>Recently Added</h5>
 			<div className='flex flex--wrap justify-content--between'>
 				{expenseListData &&
 					Array.isArray(expenseListData) &&
@@ -77,7 +77,7 @@ const ExpenseList: FC = () => {
 												<p className='friend-name mt--5 font-size--lg'>
 													{friendName === 'Lily' ? 'You' : `${friendName}`}
 												</p>
-												<p className='font-size--xxs' style={{ color: `${getRandomColor()}` }}>
+												<p className='font-size--xs' style={{ color: `${getRandomColor()}` }}>
 													{amountStatus
 														? 'paid $ 0.00'
 														: `Owes  ${(Number(amount) / involvedFriends.length).toFixed(

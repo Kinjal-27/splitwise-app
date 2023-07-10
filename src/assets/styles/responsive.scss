@@ -182,12 +182,14 @@
 				margin-right: 0;
 			}
 		}
+		.profile-group-wrapper {
+			padding: 0 15px;
+		}
 	}
 }
 
 @media screen and (max-width: 500px) {
 	.dashboard-wrapper {
-		padding: 15px;
 		.expense-list-wrapper {
 			.expense-list-title {
 				font-size: 20px;
@@ -216,14 +218,23 @@
 			}
 		}
 		.profile-group-wrapper {
+			padding: 0 25px 0 15px;
 			.profile-img {
-				width: 40px;
+				width: 35px;
 			}
 		}
 		.btn {
 			padding: 1px 5px;
 			font-size: 14px;
 			height: 28px;
+		}
+		.add-btn {
+			padding: 8px !important;
+			height: 40px !important;
+			width: 40px !important;
+		}
+		.group-btn-wrapper {
+			top: 20px;
 		}
 	}
 	.modal {
@@ -246,6 +257,12 @@
 					}
 				}
 			}
+		}
+	}
+	.header-wrapper {
+		padding: 20px 10px;
+		.title {
+			font-size: 28px;
 		}
 	}
 }
