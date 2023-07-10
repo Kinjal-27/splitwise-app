@@ -4,11 +4,13 @@ import { Button } from 'react-bootstrap';
 import Header from 'shared/components/header/header';
 import CustomModal from 'shared/modal/modal';
 import { IObj } from 'shared/interface';
-import AddExpenses from '../components/addExpense';
-import ExpenseList from '../components/expenseList';
-import { profileImgMapper } from '../constants/constant';
+import { AddExpense } from 'shared/components/icons/icons';
 import groupMembers from 'assets/JSONDATA/groupMembers.json';
-import { AddExpense, Expenses, ExpensesItem } from 'shared/components/icons/icons';
+
+import ExpenseList from '../components/expenseList';
+import AddExpenses from '../components/addExpense';
+import { profileImgMapper } from '../constants/constant';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/dashboard.scss';
 
