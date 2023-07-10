@@ -1,9 +1,9 @@
 import { FC, useEffect, useState, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { getRandomColor } from 'shared/util/utility';
+import { notify } from 'shared/components/notification/notification';
 import { profileImgMapper } from '../constants/constant';
 import { IExpenseDataProps } from '../interface/dashboard';
-import { notify } from 'shared/components/notification/notification';
 
 const ExpenseList: FC = () => {
 	const [getExpenseData, setExpenseData] = useState<IExpenseDataProps[]>([]);

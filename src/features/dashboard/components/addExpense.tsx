@@ -52,7 +52,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									<label htmlFor='description' className='form-label'>
 										Enter a description :{' '}
 									</label>
-									<Field name='description' className='form-control' />
+									<Field name='description' className='form-control' placeholder='Description' />
 								</div>
 								{errors.description && touched.description ? (
 									<div className='error flex justify-content--end'>{errors.description}</div>
@@ -61,7 +61,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									<label htmlFor='amount' className='form-label'>
 										Enter the $ amount :{' '}
 									</label>
-									<Field name='amount' className='form-control' />
+									<Field name='amount' className='form-control' placeholder='Amount' />
 								</div>
 								{errors.amount && touched.amount ? (
 									<div className='error flex justify-content--end'>{errors.amount}</div>
