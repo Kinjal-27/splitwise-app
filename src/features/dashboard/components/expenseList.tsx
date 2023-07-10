@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { getRandomColor } from 'shared/util/utility';
 import { profileImgMapper } from '../constants/constant';
 import { IExpenseDataProps } from '../interface/dashboard';
+import { notify } from 'shared/components/notification/notification';
 
 const ExpenseList: FC = () => {
 	const [getExpenseData, setExpenseData] = useState<IExpenseDataProps[]>([]);
@@ -14,7 +15,6 @@ const ExpenseList: FC = () => {
 	}, [localStorage.setItem]);
 	const handleSettleUp = useCallback(
 		(summaryIndex: number) => {
-			setIsSettleUp(true);
 			const index = expenseListData.findIndex(
 				(expenseData: IExpenseDataProps, index: number) => index === summaryIndex
 			);
@@ -24,9 +24,11 @@ const ExpenseList: FC = () => {
 				updatedArr[index].amountStatus = true;
 				localStorage.setItem('Expenses', JSON.stringify(updatedArr));
 				setExpenseData(updatedArr);
+				setIsSettleUp(true);
 			}
+			notify('Your expense has been settled', 'success');
 		},
-		[localStorage.setItem, isSettleUp]
+		[localStorage.setItem]
 	);
 
 	return (
