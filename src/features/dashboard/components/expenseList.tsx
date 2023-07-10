@@ -26,7 +26,7 @@ const ExpenseList: FC = () => {
 				setExpenseData(updatedArr);
 			}
 		},
-		[localStorage.setItem, isSettleUp]
+		[localStorage.setItem]
 	);
 
 	return (
