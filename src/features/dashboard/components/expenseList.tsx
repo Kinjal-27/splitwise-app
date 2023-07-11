@@ -1,14 +1,20 @@
-import { FC, useState, useCallback } from 'react';
+import { FC, useEffect, useState, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { getRandomColor } from 'shared/util/utility';
 import { notify } from 'shared/components/notification/notification';
 import { profileImgMapper } from '../constants/constant';
 import { IExpenseDataProps } from '../interface/dashboard';
+import { isEmpty } from 'lodash';
 
 const ExpenseList: FC = () => {
+	const [getExpenseData, setExpenseData] = useState<IExpenseDataProps[]>([]);
 	const [isSettleUp, setIsSettleUp] = useState(false);
 	const expenseList = localStorage.getItem('Expenses');
 	const expenseListData = expenseList && JSON.parse(expenseList);
+
+	useEffect(() => {
+		setExpenseData(expenseListData);
+	}, [localStorage]);
 
 	const handleSettleUp = useCallback(
 		(summaryIndex: number) => {
@@ -20,18 +26,19 @@ const ExpenseList: FC = () => {
 				const updatedArr = [...expenseListData];
 				updatedArr[index].amountStatus = true;
 				localStorage.setItem('Expenses', JSON.stringify(updatedArr));
+				setExpenseData(updatedArr);
 				setIsSettleUp(true);
 				notify('Your expense has been settled', 'success');
 			}
 		},
-		[expenseListData]
+		[expenseListData, localStorage]
 	);
 
 	return (
 		<div className='expense-list-wrapper'>
 			<h5 className='expense-list-title mt--10'>Recently Added</h5>
 			<div className='flex flex--wrap justify-content--between'>
-				{expenseListData.length > 0 &&
+				{expenseListData &&
 					expenseListData.map((expense: IExpenseDataProps, index: number) => {
 						const { amount, description, involvedFriends, whoPaid, date, amountStatus } = expense;
 
@@ -88,7 +95,7 @@ const ExpenseList: FC = () => {
 							</div>
 						);
 					})}
-				{!expenseListData && (
+				{isEmpty(expenseListData) && (
 					<div className='no-data-wrapper'>
 						<h5 className='text--center'>No expense found</h5>
 					</div>
