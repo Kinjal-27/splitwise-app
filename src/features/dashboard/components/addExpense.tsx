@@ -61,7 +61,7 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									<label htmlFor='amount' className='form-label'>
 										Enter the $ amount :{' '}
 									</label>
-									<Field name='amount' className='form-control' placeholder='Amount' />
+									<Field name='amount' type='number' className='form-control' placeholder='Amount' />
 								</div>
 								{errors.amount && touched.amount ? (
 									<div className='error flex justify-content--end'>{errors.amount}</div>

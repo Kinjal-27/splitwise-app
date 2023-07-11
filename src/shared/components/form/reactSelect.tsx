@@ -38,7 +38,7 @@ const ReactSelect: React.FC<any> = (props) => {
 	return (
 		<Select
 			defaultValue={defaultValue}
-			placeholder={placeholder || 'No data found'}
+			placeholder={placeholder || 'Select member'}
 			menuPlacement={menuPlacement || 'auto'}
 			value={value}
 			onChange={onChange}
