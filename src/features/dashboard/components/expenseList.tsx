@@ -1,21 +1,42 @@
 import { FC, useEffect, useState, useCallback } from 'react';
+import isEmpty from 'lodash/isEmpty';
 import { Button } from 'react-bootstrap';
+
 import { getRandomColor } from 'shared/util/utility';
 import { notify } from 'shared/components/notification/notification';
+import { Delete } from 'shared/components/icons/icons';
+
 import { profileImgMapper } from '../constants/constant';
 import { IExpenseDataProps } from '../interface/dashboard';
-import { isEmpty } from 'lodash';
 
 const ExpenseList: FC = () => {
-	const [getExpenseData, setExpenseData] = useState<IExpenseDataProps[]>([]);
-	const [isSettleUp, setIsSettleUp] = useState(false);
 	const expenseList = localStorage.getItem('Expenses');
 	const expenseListData = expenseList && JSON.parse(expenseList);
+	const [getExpenseData, setExpenseData] = useState<IExpenseDataProps[]>([]);
 
 	useEffect(() => {
 		setExpenseData(expenseListData);
 	}, [localStorage]);
 
+	//Delete expenses
+	const handleDeleteExpense = useCallback(
+		(index: number) => {
+			const deletedIndex = expenseListData.findIndex(
+				(expenseData: IExpenseDataProps, index: number) => index === index
+			);
+
+			if (deletedIndex !== -1) {
+				const updatedArr = [...expenseListData];
+				updatedArr.splice(index, 1);
+				localStorage.setItem('Expenses', JSON.stringify(updatedArr));
+				setExpenseData([...updatedArr]);
+				notify('Your expense has been deleted successfully', 'success');
+			}
+		},
+		[expenseListData, localStorage]
+	);
+
+	//Settle up expenses
 	const handleSettleUp = useCallback(
 		(summaryIndex: number) => {
 			const index = expenseListData.findIndex(
@@ -26,8 +47,7 @@ const ExpenseList: FC = () => {
 				const updatedArr = [...expenseListData];
 				updatedArr[index].amountStatus = true;
 				localStorage.setItem('Expenses', JSON.stringify(updatedArr));
-				setExpenseData(updatedArr);
-				setIsSettleUp(true);
+				setExpenseData([...updatedArr]);
 				notify('Your expense has been settled', 'success');
 			}
 		},
@@ -65,32 +85,40 @@ const ExpenseList: FC = () => {
 										<p className='settled-text'>SETTLED</p>
 									)}
 								</div>
-
-								<div className='flex flex--wrap mt--15'>
-									{involvedFriends.map((friendName: string, index: number) => {
-										return (
-											<div
-												key={index}
-												className='member-amount-wrapper flex flex--column align-items--center mr--10'
-											>
-												<img
-													src={profileImgMapper[friendName]}
-													alt='profile-img'
-													className='friend-img'
-												/>
-												<p className='friend-name mt--5 font-size--lg'>
-													{friendName === 'Lily' ? 'You' : `${friendName}`}
-												</p>
-												<p className='font-size--xs' style={{ color: `${getRandomColor()}` }}>
-													{amountStatus
-														? 'paid $ 0.00'
-														: `Owes  ${(Number(amount) / involvedFriends.length).toFixed(
-																2
-														  )}`}
-												</p>
-											</div>
-										);
-									})}
+								<div className='flex align-items--end justify-content--between'>
+									<div className='flex flex--wrap mt--15'>
+										{involvedFriends &&
+											involvedFriends.map((friendName: string, index: number) => {
+												return (
+													<div
+														key={index}
+														className='member-amount-wrapper flex flex--column align-items--center mr--10'
+													>
+														<img
+															src={profileImgMapper[friendName]}
+															alt='profile-img'
+															className='friend-img'
+														/>
+														<p className='friend-name mt--5 font-size--lg'>
+															{friendName === 'Lily' ? 'You' : `${friendName}`}
+														</p>
+														<p
+															className='font-size--xs'
+															style={{ color: `${getRandomColor()}` }}
+														>
+															{amountStatus
+																? 'paid $ 0.00'
+																: `Owes  ${(
+																		Number(amount) / involvedFriends.length
+																  ).toFixed(2)}`}
+														</p>
+													</div>
+												);
+											})}
+									</div>
+									<div className='cursor--pointer' onClick={() => handleDeleteExpense(index)}>
+										<Delete className='bi-trash' />
+									</div>
 								</div>
 							</div>
 						);
