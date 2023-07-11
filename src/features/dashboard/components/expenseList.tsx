@@ -107,7 +107,7 @@ const ExpenseList: FC = () => {
 															style={{ color: `${getRandomColor()}` }}
 														>
 															{amountStatus
-																? 'paid $ 0.00'
+																? 'Owes $ 0.00'
 																: `Owes  ${(
 																		Number(amount) / involvedFriends.length
 																  ).toFixed(2)}`}
