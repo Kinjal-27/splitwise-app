@@ -17,8 +17,8 @@
 			width: 45%;
 			background: white;
 			color: black;
-			border: 1px solid green;
-			box-shadow: rgba(green, 0.2) 2px 3px 5px;
+			border: 1px solid $green;
+			box-shadow: rgba($green, 0.2) 2px 3px 5px;
 			.expense-description {
 				color: $black;
 			}
@@ -42,7 +42,7 @@
 	.no-data-wrapper {
 		background: white;
 		color: black;
-		border: 1px solid green;
+		border: 1px solid $green;
 		width: 100%;
 		padding: 100px 50px;
 		margin: 20px 0;

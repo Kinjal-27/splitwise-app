@@ -8,6 +8,7 @@ import { IObj, IOption } from 'shared/interface';
 
 import { IExpenseDataProps } from '../interface/dashboard';
 import CheckboxInput from '../components/checkboxInput';
+import { formattedDate } from 'shared/util/utility';
 
 interface ICommonFormProps {
 	handleClose: () => void;
@@ -24,8 +25,6 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 	};
 	const storedMembers = localStorage.getItem('groupMembers');
 	const getMembers = storedMembers && JSON.parse(storedMembers as string);
-
-	const formattedDate = new Date().toLocaleString('en-us', { month: 'short', year: 'numeric', day: '2-digit' }) + '';
 
 	const handleSubmit = (values: IExpenseDataProps) => {
 		values.date = formattedDate;
@@ -54,18 +53,18 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 									</label>
 									<Field name='description' className='form-control' placeholder='Description' />
 								</div>
-								{errors.description && touched.description ? (
+								{errors.description && touched.description && (
 									<div className='error flex justify-content--end'>{errors.description}</div>
-								) : null}
+								)}
 								<div className='flex width--full justify-content--between align-items--end'>
 									<label htmlFor='amount' className='form-label'>
 										Enter the $ amount :{' '}
 									</label>
 									<Field name='amount' type='number' className='form-control' placeholder='Amount' />
 								</div>
-								{errors.amount && touched.amount ? (
+								{errors.amount && touched.amount && (
 									<div className='error flex justify-content--end'>{errors.amount}</div>
-								) : null}
+								)}
 								<div className='flex width--full justify-content--between align-items--end mt--20'>
 									<label htmlFor='whoPaid' className='form-label'>
 										Who paid :{' '}
@@ -82,9 +81,9 @@ const AddExpenses: FC<ICommonFormProps> = ({ handleClose }) => {
 										}}
 									/>
 								</div>
-								{errors.whoPaid && touched.whoPaid ? (
+								{errors.whoPaid && touched.whoPaid && (
 									<div className='error flex justify-content--end'>{errors.whoPaid}</div>
-								) : null}
+								)}
 								<div className='flex flex--column  mt--30'>
 									<p className='form-label'>Part of the Expense :</p>
 									<div className='flex justify-content--between mt--10'>

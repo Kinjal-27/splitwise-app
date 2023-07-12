@@ -62,3 +62,6 @@ export const getRandomColor = () => {
 	const randomIndex = Math.floor(Math.random() * colors.length);
 	return colors[randomIndex];
 };
+
+export const formattedDate =
+	new Date().toLocaleString('en-us', { month: 'short', year: 'numeric', day: '2-digit' }) + '';
